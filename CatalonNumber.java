@@ -16,6 +16,7 @@ public class CatalonNumber{
 		//Base Condition
 		if (n==0 || n==1)
 			return 1;
+		//OverLapping Subproblem
 		if (dp[n]!=0)
 			return dp[n];
 		//Recursive Condition
@@ -28,6 +29,7 @@ public class CatalonNumber{
 	}
 	public static void iterative(int n){
 		int dp[]=new int[n+1];
+		//fill whole dp array with zero
 		Arrays.fill(dp,0);
 		dp[0]=1;
 		dp[1]=1;
@@ -35,6 +37,7 @@ public class CatalonNumber{
 			for(int j=1;j<=i;j++)
 			dp[i]+=dp[j-1]*dp[i-j];
 		}
+		//print the Sequence
 		for(int i=0;i<=n;i++){
 			System.out.print(dp[i]+"  ");
 		}
